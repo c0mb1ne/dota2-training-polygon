@@ -355,6 +355,7 @@
 								</Panel>
 							</Panel>
 							<Label class="infoText" text="#eulInfo3"/>
+							<Label text="pisos"/>
 						</Panel>
 						<Panel id="glimpseInfo" class="infoCol">
 							<Label class="infoText" text="#glimpseInfo1"/>
