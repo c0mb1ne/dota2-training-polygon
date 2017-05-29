@@ -1,0 +1,27 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/eul.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/eul.js" />
+	</scripts>
+	<Panel class="Main" hittest="false">
+		<Button class="volvoButton" id="btnEnd" onactivate="endEulTraining()">
+			<Label text="#trainingEnd"/>
+		</Button>
+		<Panel id="eulTimer" hittest="false" hittestchildren="false">
+			<Label id="timerText" text="0.000"/>
+			<Panel id="timerBar"> 
+			</Panel>
+			<Panel id="barDynamic">
+			</Panel>
+			<Panel id="barMarker">
+			</Panel>
+			<Label id="description" text="#eulTimeBarInfo"/>
+		</Panel>
+		<Panel id="eulNotification" hittest="false" hittestchildren="false">
+			<Label id="header" text="Good!"/>
+			<Label id="desc" text="Time between landing and your ability damage:"/>
+		</Panel>
+	</Panel>
+</root>

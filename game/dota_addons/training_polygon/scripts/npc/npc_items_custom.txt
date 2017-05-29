@@ -1,0 +1,713 @@
+"DOTAAbilities"
+{
+  "item_containers_lua_pack"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "ID"              "1835"
+    "BaseClass"         "item_lua"
+    "AbilityTextureName"        "item_present"
+    "ScriptFile"          "libraries/abilities/item_containers_lua_pack.lua"
+    "MaxLevel"            "1"
+
+    "ItemCost"            "0"
+    "ItemPurchasable"          "0"
+    "ItemKillable"             "0"
+    "ItemDroppable"            "0"
+    "ItemSellable"             "0"
+    "ItemCanChangeContainer"   "0"
+    
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "0"
+
+    // Time   
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"       "0"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "0 0 0 0"
+  }
+
+  //Shield
+  "item_example_item"
+  {
+    "ID"              "1836"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
+    "BaseClass"           "item_datadriven"
+    "AbilityCastAnimation"      "ACT_DOTA_DISABLED"
+    "AbilityTextureName"      "item_example_item"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "900"
+    "AbilityCastPoint"        "0.2"
+    "AbilityCooldown"       "13.0"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "100"
+    "ItemCost"            "750"
+    "ItemInitialCharges"      "0"
+    "ItemDroppable"         "1"
+    "ItemSellable"          "1"
+    "ItemRequiresCharges"     "0"
+    "ItemShareability"        "ITEM_NOT_SHAREABLE"
+    "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    
+    "MaxUpgradeLevel"       "1"
+    "ItemBaseLevel"         "1"
+    
+    "precache"
+    {
+      "particle"              "particles/frostivus_herofx/queen_shadow_strike_linear_parent.vpcf"
+      "particle_folder"       "particles/test_particle"
+      "soundfile"             "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
+    }
+    "OnSpellStart"
+    {
+      "LinearProjectile"
+      {
+        "EffectName"      "particles/frostivus_herofx/queen_shadow_strike_linear_parent.vpcf"
+        "MoveSpeed"       "%speed"
+        //"StartPosition"   "attach_attack1"
+        "FixedDistance"   "%distance"
+        "StartRadius"     "%radius"
+        "EndRadius"       "%radius"
+        "TargetTeams"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "TargetTypes"     "DOTA_UNIT_TARGET_HERO"
+        "TargetFlags"     "DOTA_UNIT_TARGET_FLAG_NONE"
+        "HasFrontalCone"    "0"
+        "ProvidesVision"    "0"
+        "VisionRadius"      "0"
+      }
+      "FireSound"
+      {
+        "EffectName"    "Hero_Abaddon.AphoticShield.Cast"
+        "Target"        "CASTER"
+      }
+      "ApplyModifier"
+      {
+        "Target"      "CASTER"
+        "ModifierName"  "modifier_item_shield"
+      }
+    }
+    
+    "OnProjectileHitUnit"
+    {     
+      "DeleteOnHit" "0"
+      "Damage"
+      {
+        "Target"      "TARGET"
+        "Type"    "DAMAGE_TYPE_PURE"
+        "Damage"  "%damage"
+      }
+    }
+    
+    "Modifiers"
+    {
+      "modifier_item_shield"
+      {
+        "EffectName"    "particles/test_particle/damage_immunity.vpcf"
+        "EffectAttachType"  "follow_origin"
+        "Target"      "CASTER"
+        
+        "Duration" "%duration"
+        "TextureName" "abaddon_aphotic_shield"
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"    "%damage_reduction"
+        }
+      }
+
+      "modifier_item_ex"
+      {
+        "Passive" "1"
+        "Attributes"  "MODIFIER_ATTRIBUTE_MULTIPLE"
+
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"    "33"
+        }
+      }
+
+      "modifier_item_ex2"
+      {
+        "Passive" "1"
+
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"    "3"
+        }
+      }
+    }
+    
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "duration"        "4.0"
+      }
+      
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "damage_reduction"    "-50"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "radius"          "150"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "speed"           "1800"
+      }
+      "05"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "distance"        "900"
+      }
+      "06"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "damage"          "125"
+      }
+    }
+  }
+    //=================================================================================================================
+    // Manta
+    //=================================================================================================================
+    "item_manta"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"                            "147"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+
+        // Stats        
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "2.0"
+        "AbilityCastPoint"              "0.0"
+        "ItemDroppable" "0"
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+        "ItemCost"                      "1"
+        "ItemShopTags"                  "agi;str;int;attack_speed;move_speed;hard_to_tag"
+        "ItemQuality"                   "epic"
+        "ItemAliases"                   "manta style"
+        "ItemDisassembleRule"           "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+        
+        // Special  
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_strength"        "0"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_agility"         "0"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_intellect"       "0"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_attack_speed"    "0"
+            }
+            "05"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_movement_speed"  "0"
+            }
+            "06"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "images_count"          "0"
+            }           
+            "07"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "tooltip_illusion_duration"         "1"
+            }
+            "08"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "images_do_damage_percent_melee"    "-67"
+            }
+            "09"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "tooltip_damage_outgoing_melee"         "33"
+            }   
+            "10"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "images_take_damage_percent_melee"  "250"
+            }
+            "11"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "tooltip_damage_incoming_melee_total_pct"           "350"
+            }           
+            "12"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "images_do_damage_percent_ranged"   "-72"
+            }
+            "13"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "tooltip_damage_outgoing_ranged"            "28"
+            }
+            "14"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "images_take_damage_percent_ranged" "300"
+            }
+            "15"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "tooltip_damage_incoming_ranged_total_pct"          "400"
+            }
+            "16"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "cooldown_melee"        "2"
+            }
+            "17"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "cooldown_ranged_tooltip"       "45"
+            }
+            "18"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "invuln_duration"       "0.1"
+            }
+            "19"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "vision_radius"         "1000"
+            }           
+        }
+    
+    }
+  "item_training_manta"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                     "item_datadriven"
+    "ID"                            "1147"  //Valve's version of this item uses the ID "147".
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "Model"                         "models/props_gameplay/red_box.vmdl" 
+    "Effect"                        "particles/generic_gameplay/dropped_item.vpcf"
+    "AbilityTextureName"            "item_manta"
+
+    // Stats        
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"               "1"  //This is the cooldown when used by ranged units.
+    "AbilityCastPoint"              "0.0"
+    "AbilityManaCost"               "0"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                      "1"
+    "ItemShopTags"                  "agi;str;int;attack_speed;move_speed;hard_to_tag"
+    "ItemQuality"                   "epic"
+    "ItemAliases"                   "manta style"
+    "ItemDisassembleRule"           "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"                                          "FIELD_INTEGER"
+            "bonus_strength"                                    "10"
+        }
+        "02"
+        {
+            "var_type"                                          "FIELD_INTEGER"
+            "bonus_agility"                                     "26"
+        }
+        "03"
+        {
+            "var_type"                                          "FIELD_INTEGER"
+            "bonus_intelligence"                                "10"
+        }
+        "04"
+        {
+            "var_type"                                          "FIELD_INTEGER"
+            "bonus_attack_speed"                                "15"
+        }
+        "05"
+        {
+            "var_type"                                          "FIELD_INTEGER"
+            "bonus_movement_speed_percentage"                   "10"
+        }
+        "06"
+        {
+            "var_type"                                          "FIELD_INTEGER"
+            "images_count"                                      "2"  //This value is currently hardcoded in item_manta.lua.
+        }
+        "07"
+        {
+            "var_type"                                          "FIELD_INTEGER"
+            "illusion_duration"                                 "1"
+        }
+        "08"
+        {
+            "var_type"                                          "FIELD_INTEGER"
+            "illusion_damage_percent_outgoing_melee"            "-67"
+        }
+        "09"
+        {
+            "var_type"                                          "FIELD_INTEGER"
+            "illusion_damage_percent_outgoing_melee_tooltip"    "33"
+        }   
+        "10"
+        {
+            "var_type"                                          "FIELD_INTEGER"
+            "illusion_damage_percent_incoming_melee"            "250"
+        }
+        "11"
+        {
+            "var_type"                                          "FIELD_INTEGER"
+            "illusion_damage_percent_incoming_melee_tooltip"    "350"
+        }           
+        "12"
+        {
+            "var_type"                                          "FIELD_INTEGER"
+            "illusion_damage_percent_outgoing_ranged"           "-72"
+        }
+        "13"
+        {
+            "var_type"                                          "FIELD_INTEGER"
+            "illusion_damage_percent_outgoing_ranged_tooltip"   "28"
+        }
+        "14"
+        {
+            "var_type"                                          "FIELD_INTEGER"
+            "illusion_damage_percent_incoming_ranged"           "300"
+        }
+        "15"
+        {
+            "var_type"                                          "FIELD_INTEGER"
+            "illusion_damage_percent_incoming_ranged_tooltip"   "400"
+        }
+        "16"
+        {
+            "var_type"                                          "FIELD_FLOAT"
+            "cooldown_melee"                                    "1"  //The cooldown for a ranged caster is the AbilityCooldown value.
+        }
+        "17"
+        {
+            "var_type"                                          "FIELD_FLOAT"
+            "invulnerability_duration"                          "0.1"
+        }
+        "18"
+        {
+            "var_type"                                          "FIELD_INTEGER"
+            "vision_radius"                                     "1000"
+        }
+    }
+
+    "OnSpellStart"
+    {
+        "RunScript"
+        {
+            "ScriptFile"                    "libraries/items/item_manta.lua"
+            "Function"                      "item_manta_datadriven_on_spell_start"
+            "CooldownMelee"                 "%cooldown_melee"
+            "InvulnerabilityDuration"       "%invulnerability_duration"
+            "VisionRadius"                  "%vision_radius"
+        }
+    }
+
+    "Modifiers"
+    {
+        "modifier_item_manta_datadriven"
+        {
+            "Passive"           "1"
+            "IsHidden"          "1"
+            "Attributes"        "MODIFIER_ATTRIBUTE_MULTIPLE"
+            
+            "Properties"
+            {
+                "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"                        "%bonus_strength"
+                "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"                         "%bonus_agility"
+                "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"                       "%bonus_intelligence"
+                
+                //Attack speed from Yasha-derived items affect your illusions.
+                "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT_SECONDARY"        "%bonus_attack_speed"
+                
+                //Movement speed from Yasha-derived items does not stack with itself but does stack with other percentage-based movement speed bonuses.
+                "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE"           "%bonus_movement_speed_percentage"
+            }
+        }
+        
+        "modifier_item_manta_datadriven_spawning_animation"
+        {
+            "Duration"          ".1"
+            "Passive"           "0"
+            "IsHidden"          "1"
+            
+            "OverrideAnimation"     "ACT_DOTA_SPAWN"
+        }
+        "modifier_item_manta_datadriven_invulnerability"
+        {
+            "Duration"  "%invulnerability_duration"
+            "Passive"   "0"
+            "IsHidden"  "1"
+
+            "States"
+            {
+                "MODIFIER_STATE_OUT_OF_GAME"    "MODIFIER_STATE_VALUE_ENABLED"
+                "MODIFIER_STATE_INVULNERABLE"   "MODIFIER_STATE_VALUE_ENABLED"
+                "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+                "MODIFIER_STATE_STUNNED"        "MODIFIER_STATE_VALUE_ENABLED"
+            }
+
+            "OnDestroy"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"        "libraries/items/item_manta.lua"
+                    "Function"          "modifier_item_manta_datadriven_invulnerability_on_destroy"
+                    "IllusionOutgoingDamageMelee"   "%illusion_damage_percent_outgoing_melee"
+                    "IllusionIncomingDamageMelee"   "%illusion_damage_percent_incoming_melee"
+                    "IllusionOutgoingDamageRanged"  "%illusion_damage_percent_outgoing_ranged"
+                    "IllusionIncomingDamageRanged"  "%illusion_damage_percent_incoming_ranged"
+                    "IllusionDuration"              "%illusion_duration"
+                }
+            }               
+        }
+    }
+  }
+    //=================================================================================================================
+    // Cyclone
+    //=================================================================================================================
+    "item_cyclone"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"                            "100"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_CUSTOM"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_CUSTOM"
+        "FightRecapLevel"               "1"
+        "ItemDroppable" "0"
+        // Stats
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "575"
+        "AbilityCastPoint"              "0.0"
+
+        // Stats        
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "3.5"
+
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+        "ItemCost"                      "2750"
+        "ItemShopTags"                  "int;regen_mana;move_speed;hard_to_tag"
+        "ItemQuality"                   "rare"
+        "ItemAliases"                   "cyclone euls;eul's scepter of divinity"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+        
+        // Special  
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_intellect"       "10"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_mana_regen"      "150"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_movement_speed"  "40"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "cyclone_duration"      "2.5"
+            }
+            "05"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "cast_range_tooltip"        "575"
+            }
+        }
+    }
+    //=================================================================================================================
+    // Ghost
+    //=================================================================================================================
+    "item_ghost"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"                            "37"                                                // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "FightRecapLevel"               "1"
+        
+        // Stats
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "20.0"       
+        "AbilitySharedCooldown"         "ethereal"
+        
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "1500"
+        "ItemShopTags"                  "int;agi;str;hard_to_tag"
+        "ItemQuality"                   "component"
+        "ItemAliases"                   "ghost scepter"
+
+        // Special  
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_all_stats"       "5"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "duration"              "99999.0"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "extra_spell_damage_percent"    "-40"
+            }
+        }
+    }
+        //=================================================================================================================
+    // Travel Boots
+    //=================================================================================================================
+    "item_travel_boots"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"                            "48"                                                        // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+
+        // Stats        
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "3"
+        "AbilitySharedCooldown"         "teleport"
+        "AbilityChannelTime"            "3.0"
+        
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+        "ItemCost"                      "2400"
+        "ItemShopTags"                  "teleport;move_speed"
+        "ItemQuality"                   "common"
+        "ItemAliases"                   "bot;boots of travel"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "MaxUpgradeLevel"               "2"
+        "ItemBaseLevel"                 "1"
+        
+        "UpgradesItems"                 "item_travel_boots"
+        "UpgradeRecipe"                 "item_recipe_travel_boots"
+
+
+        // Special  
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_movement_speed"  "100"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "maximum_distance"      "575"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "vision_radius"         "200"
+            }
+        }
+    }
+        //=================================================================================================================
+    // Blink dagger
+    //=================================================================================================================
+    "item_blink"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"                            "1"                                                     // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+
+        // Stats
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "0"
+        "AbilityCastPoint"              "0.0"
+        "AbilityCooldown"               "3"
+        "AbilityManaCost"               "0"
+        
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "2250"
+        "ItemShopTags"                  "teleport"
+        "ItemQuality"                   "component"
+        "ItemAliases"                   "blink dagger"
+        "SideShop"                      "1"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+        
+        // Special  
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "blink_range"           "1200"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "blink_damage_cooldown" "3.0"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "blink_range_clamp"     "960"
+            }
+        }
+    }
+}

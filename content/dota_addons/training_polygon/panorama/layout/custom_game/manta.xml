@@ -1,0 +1,35 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/manta.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/manta.js" />
+	</scripts>
+	<Panel class="Main" >
+		<Button class="volvoButton" id="btnTest" onactivate="endCustomTraining()">
+			<Label text="#trainingEnd"/>
+		</Button>
+		<!-- <Button class="volvoButton" id="btnTest2" onactivate="onBtnTestClick3('myArgument')">
+			<Label text="sosi pisos"/>
+		</Button> -->
+		<Label hittest="false" class="scoreInfo" id="textTest" text="Score:"/>
+		<Label hittest="false" class="scoreInfo" id="livesLeft" text="Lives left:"/>
+		
+		<Panel hittest="false" id="testskill" class="Skills">
+			<DOTAAbilityImage id="myability" abilityname="lina_light_strike_array" />
+		</Panel>
+		<Panel id="Timing">
+			<Panel id="TimeBar" class="Bar">
+				<Panel hittest="false" class="hui" id="spellBar">
+				</Panel>
+				<Panel hittest="false" class="hui" id="manta">
+				</Panel>
+			</Panel>
+			<Label hittest="false" id="cursor"/>
+		</Panel>
+		<Panel id="mantaNotify">
+			<Label hittest="false" id="notify" text="Good!"/>
+			<Label hittest="false" id="desc" text="Good!"/>
+		</Panel>
+	</Panel>
+</root>

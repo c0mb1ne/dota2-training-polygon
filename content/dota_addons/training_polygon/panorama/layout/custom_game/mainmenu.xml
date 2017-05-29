@@ -1,0 +1,482 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/mainmenu.css" />
+		<include src="file://{resources}/styles/custom_game/dotastyles.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/mainmenu.js" />
+	</scripts>
+	<Panel class="Main">
+		<Panel class="mainWindow" id="mainWindow">
+			<Panel class="welcomeFrame" id="welcomeWindow">
+				<Label class="welcomeText" id="welcome" text="#welcomeTitle"/>
+				<Label text="#welcomeOne" html="true" id="welcomeText1"/>
+				<Panel class="MyCustomClass">
+					<Label text="#welcomeTwo" html="true" id="welcomeText2"/>
+					<Label id="welcomeLink" class="webLink" html="true" text="&lt;a href=&quot;http://steamcommunity.com/sharedfiles/filedetails/?id=813598504&quot;&gt;Training polygon (beta) workshop page&lt;a&gt;"/>
+				</Panel>
+				<Panel id="donationsTable">
+					<Panel id="donatinonsTopAllTime" class="donatorList">
+						<Label class="donatorsHeader" text="#donAllTime"/>
+						<Panel id="don_e_11" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="1."/>
+							<DOTAAvatarImage id="don_a_11" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_11" class="donatorName" steamid="local" />
+								<Label id="don_m_11" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+						<Panel id="don_e_12" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="2."/>
+							<DOTAAvatarImage id="don_a_12" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_12" class="donatorName" steamid="local" />
+								<Label id="don_m_12" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+						<Panel id="don_e_13" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="3."/>
+							<DOTAAvatarImage id="don_a_13" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_13" class="donatorName" steamid="local" />
+								<Label id="don_m_13" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+						<Panel id="don_e_14" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="4."/>
+							<DOTAAvatarImage id="don_a_14" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_14" class="donatorName" steamid="local" />
+								<Label id="don_m_14" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+						<Panel id="don_e_15" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="5."/>
+							<DOTAAvatarImage id="don_a_15" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_15" class="donatorName" steamid="local" />
+								<Label id="don_m_15" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+						<Panel id="don_e_16" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="6."/>
+							<DOTAAvatarImage id="don_a_16" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_16" class="donatorName" steamid="local" />
+								<Label id="don_m_16" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+						<Panel id="don_e_17" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="7."/>
+							<DOTAAvatarImage id="don_a_17" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_17" class="donatorName" steamid="local" />
+								<Label id="don_m_17" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+						<Panel id="don_e_18" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="8."/>
+							<DOTAAvatarImage id="don_a_18" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_18" class="donatorName" steamid="local" />
+								<Label id="don_m_18" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+						<Panel id="don_e_19" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="9."/>
+							<DOTAAvatarImage id="don_a_19" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_19" class="donatorName" steamid="local" />
+								<Label id="don_m_19" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+						<Panel id="don_e_110" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="10."/>
+							<DOTAAvatarImage id="don_a_110" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_110" class="donatorName" steamid="local" />
+								<Label id="don_m_110" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+					</Panel>
+					<Panel id="donatinonsTopLast" class="donatorList">
+						<Label class="donatorsHeader" text="#donLastTen"/>
+						<Panel id="don_e_21" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="1."/>
+							<DOTAAvatarImage id="don_a_21" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_21" class="donatorName" steamid="local" />
+								<Label id="don_m_21" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+						<Panel id="don_e_22" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="2."/>
+							<DOTAAvatarImage id="don_a_22" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_22" class="donatorName" steamid="local" />
+								<Label id="don_m_22" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+						<Panel id="don_e_23" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="3."/>
+							<DOTAAvatarImage id="don_a_23" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_23" class="donatorName" steamid="local" />
+								<Label id="don_m_23" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+						<Panel id="don_e_24" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="4."/>
+							<DOTAAvatarImage id="don_a_24" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_24" class="donatorName" steamid="local" />
+								<Label id="don_m_24" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+						<Panel id="don_e_25" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="5."/>
+							<DOTAAvatarImage id="don_a_25" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_25" class="donatorName" steamid="local" />
+								<Label id="don_m_25" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+						<Panel id="don_e_26" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="6."/>
+							<DOTAAvatarImage id="don_a_26" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_26" class="donatorName" steamid="local" />
+								<Label id="don_m_26" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+						<Panel id="don_e_27" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="7."/>
+							<DOTAAvatarImage id="don_a_27" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_27" class="donatorName" steamid="local" />
+								<Label id="don_m_27" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+						<Panel id="don_e_28" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="8."/>
+							<DOTAAvatarImage id="don_a_28" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_28" class="donatorName" steamid="local" />
+								<Label id="don_m_28" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+						<Panel id="don_e_29" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="9."/>
+							<DOTAAvatarImage id="don_a_29" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_29" class="donatorName" steamid="local" />
+								<Label id="don_m_29" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+						<Panel id="don_e_210" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="10."/>
+							<DOTAAvatarImage id="don_a_210" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_210" class="donatorName" steamid="local" />
+								<Label id="don_m_210" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+					</Panel>
+					<Panel id="donatinonsTopMonth" class="donatorList">
+						<Label class="donatorsHeader" text="#donTopMonth"/>
+						<Panel id="don_e_31" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="1."/>
+							<DOTAAvatarImage id="don_a_31" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_31" class="donatorName" steamid="local" />
+								<Label id="don_m_31" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+						<Panel id="don_e_32" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="2."/>
+							<DOTAAvatarImage id="don_a_32" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_32" class="donatorName" steamid="local" />
+								<Label id="don_m_32" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+						<Panel id="don_e_33" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="3."/>
+							<DOTAAvatarImage id="don_a_33" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_33" class="donatorName" steamid="local" />
+								<Label id="don_m_33" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+						<Panel id="don_e_34" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="4."/>
+							<DOTAAvatarImage id="don_a_34" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_34" class="donatorName" steamid="local" />
+								<Label id="don_m_34" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+						<Panel id="don_e_35" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="5."/>
+							<DOTAAvatarImage id="don_a_35" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_35" class="donatorName" steamid="local" />
+								<Label id="don_m_35" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+						<Panel id="don_e_36" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="6."/>
+							<DOTAAvatarImage id="don_a_36" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_36" class="donatorName" steamid="local" />
+								<Label id="don_m_36" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+						<Panel id="don_e_37" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="7."/>
+							<DOTAAvatarImage id="don_a_37" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_37" class="donatorName" steamid="local" />
+								<Label id="don_m_37" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+						<Panel id="don_e_38" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="8."/>
+							<DOTAAvatarImage id="don_a_38" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_38" class="donatorName" steamid="local" />
+								<Label id="don_m_38" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+						<Panel id="don_e_39" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="9."/>
+							<DOTAAvatarImage id="don_a_39" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_39" class="donatorName" steamid="local" />
+								<Label id="don_m_39" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+						<Panel id="don_e_310" class="donatorPanel donatorPanelHidden">
+							<Label class="donatorPos" text="10."/>
+							<DOTAAvatarImage id="don_a_310" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_310" class="donatorName" steamid="local" />
+								<Label id="don_m_310" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+					</Panel>
+					<Panel id="firstDonation" class="donatorList">
+						<Label class="donatorsHeader" text="#donFirst"/>
+						<Panel id="don_e_41" class="donatorPanel donatorPanelHidden">
+							<DOTAAvatarImage id="don_a_41" class="donatorAvatar" steamid="local" />
+							<Panel class="donatorDetails">
+								<DOTAUserName id="don_n_41" class="donatorName" steamid="local" />
+								<Label id="don_m_41" class="donatorAmmount" text="322 $"/>
+							</Panel>
+						</Panel>
+					</Panel>
+				</Panel>
+				<Button class="volvoButton" id="welcomeButton" onactivate="closeBobRoss()">
+					<Label id="welcomeButtonText" text="#welcomeButton"/>
+				</Button>
+				<!-- <Image id="bobRoss" src="file://{images}/custom_game/coolstorybob.png" /> -->
+			</Panel>
+			<Panel id="mainFrame" class="mainFrame">
+				<Panel class="topBar">				
+					<Label class="webLink topLink" html="true" text="&lt;a href=&quot;http://steamcommunity.com/sharedfiles/filedetails/?id=813598504&quot;&gt;Training polygon (beta)&lt;a&gt;"/>
+				</Panel>
+				<Panel class="contentWindow">
+					<Panel class="leftCol">
+						<Label class="leftColHeader" text="#menuMods"/>
+						<RadioButton class="trainingEntry" checked="checked" group="mods" id="manta" text="#mapTitle"/>
+						<RadioButton class="trainingEntry" group="mods" id="euls" text="#eulsTitle"/>
+						<RadioButton class="trainingEntry" group="mods" id="glimpse" text="Training of Glimpse evasion"/>
+						<!-- <Label class="leftColHeader" text="Coming soon:"/>
+						<Panel class="trainingEntryDisabled" id="shop">
+							<Label class="trainName" text="Shopping training"/>
+						</Panel>
+						<Panel class="trainingEntryDisabled" id="invokerProcast">
+							<Label class="trainName" text="Invoker procast training"/>
+						</Panel>
+						<Panel class="trainingEntryDisabled" id="reaction">
+							<Label class="trainName" text="Reaction training"/>
+						</Panel>
+						<Panel class="trainingEntryDisabled" id="armlet">
+							<Label class="trainName" text="Armlet training"/>
+						</Panel> -->
+					</Panel>
+					<Panel id="centerInfo" class="centerCol">
+						<Label class="leftColHeader" text="#menuInfo"/>
+						<Panel id="mantaInfo" class="infoCol">
+							<Label class="infoText" text="#mantaInfo"/>
+							<Label class="webLink" html="true" text="&lt;a href=&quot;http://dota2.gamepedia.com/Manta_Style&quot;&gt;Manta Style on wiki&lt;a&gt;"/>
+						</Panel>
+						<Panel id="eulsInfo" class="infoCol">
+							<Label class="infoText" text="#eulInfo1"/>
+							<Label class="infoText" text="#eulInfo2"/>
+							<Panel class="infoRow">
+								<Panel class="infoColumn">
+									<Panel class="infoSkill">
+										<DOTAAbilityImage class="infoThumb" abilityname="riki_blink_strike" />
+										<Label  text=": 0.3 sec."/>
+									</Panel>
+									<Panel class="infoSkill">
+										<DOTAAbilityImage class="infoThumb" abilityname="queenofpain_blink" />
+										<Label  text=": 0.33 sec."/>
+									</Panel>
+									<Panel class="infoSkill">
+										<DOTAAbilityImage class="infoThumb" abilityname="faceless_void_time_walk" />
+										<Label  text=": 0.3 sec."/>
+									</Panel>
+								</Panel>
+								<Panel class="infoColumn">
+									<Panel class="infoSkill">
+										<DOTAAbilityImage class="infoThumb" abilityname="antimage_blink" />
+										<Label  text=": 0.4 sec."/>
+									</Panel>
+									<Panel class="infoSkill">
+										<DOTAAbilityImage class="infoThumb" abilityname="phantom_assassin_phantom_strike" />
+										<Label  text=": 0.3 sec."/>
+									</Panel>
+									<Panel class="infoSkill">
+										<DOTAAbilityImage class="infoThumb" abilityname="storm_spirit_ball_lightning" />
+										<Label  text=": 0.3 sec."/>
+									</Panel>
+								</Panel>
+								<Panel class="infoColumn">
+									<Panel class="infoSkill">
+										<DOTAAbilityImage class="infoThumb" abilityname="morphling_waveform" />
+										<Label  text=": 0.25 sec."/>
+									</Panel>
+									<Panel class="infoSkill">
+										<DOTAAbilityImage class="infoThumb" abilityname="vengefulspirit_nether_swap" />
+										<Label  text=": 0.3 sec."/>
+									</Panel>
+								</Panel>
+							</Panel>
+							<Label class="infoText" text="#eulInfo3"/>
+						</Panel>
+						<Panel id="glimpseInfo" class="infoCol">
+							<Label class="infoText" text="#glimpseInfo1"/>
+							<Label class="infoText" text="#glimpseInfo2"/>
+							<Label class="infoText" text="#glimpseInfo3"/>
+							<Label class="infoText" text="#glimpseInfo4"/>
+							<Label class="infoText" text="#glimpseInfo5"/>
+							<Label class="infoText" text="#glimpseInfo6"/>
+							<Panel class="infoColumn">
+								<Panel class="infoSkill">
+									<DOTAAbilityImage class="infoThumb" abilityname="phantom_lancer_doppelwalk" />
+									<Label  text="#glimpseInfo7"/>
+								</Panel>
+								<Panel class="infoSkill">
+									<DOTAAbilityImage class="infoThumb" abilityname="chaos_knight_phantasm" />
+									<Label  text="#glimpseInfo8"/>
+								</Panel>
+								<Panel class="infoSkill">
+									<DOTAAbilityImage class="infoThumb" abilityname="naga_siren_mirror_image" />
+									<Label  text="#glimpseInfo9"/>
+								</Panel>
+								<Panel class="infoSkill">
+									<DOTAAbilityImage class="infoThumb" abilityname="ember_spirit_sleight_of_fist" />
+									<Label  text="#glimpseInfo10"/>
+								</Panel>
+								<Panel class="infoSkill">
+									<DOTAAbilityImage class="infoThumb" abilityname="item_manta" />
+									<Label  text="#glimpseInfo11"/>
+								</Panel>		
+							</Panel>
+							<Label class="infoText" text="#glimpseInfo12"/>
+							<Label class="infoText" text="#glimpseInfo13"/>
+						</Panel>
+						
+					</Panel>
+					<Panel class="rightCol">
+						<Label class="leftColHeader" text="#menuSet"/>
+						<!-- <Panel id="pingSetup">
+							<Button class="volvoButton selectButtons" id="setPing" onactivate="checkPing()">
+								<Label text="Set ping"/>
+							</Button>
+						</Panel> -->
+						<Panel id="mantaSettings">
+							<Panel id="modeChanger">
+								<!-- <Label text="Training mode:"/>
+								<Panel id="modButtons">
+									<RadioButton class="volvoRadioButton" checked="checked" group="mantaMode" id="challangeMode" text="Challange mode"/>
+									<RadioButton class="volvoRadioButton" group="mantaMode" id="customMode" text="Custom mode"/>
+								</Panel> -->
+								<ToggleButton checked="true" id="timebarToggle" class="volvoCheckbox" text="#menuTimebar" />
+							</Panel>
+							<Panel id="customSettings">
+								<Panel id="selectionButtons">
+									<Label text="#menuSkills"/>
+									<Button class="volvoButton selectButtons" id="selectAll" onactivate="selectAllSkills()">
+										<Label text="#skillsAll"/>
+									</Button>
+									<Button class="volvoButton selectButtons" id="unmarkAll" onactivate="unmarkAllSkills()">
+										<Label text="#skillsNone"/>
+									</Button>
+								</Panel>
+								<Panel id="skillList">
+								</Panel>
+							</Panel>
+							<Button class="volvoButton" id="startTraining" onactivate="startGame();">
+								<Label text="#menuStart"/>
+							</Button>
+							<Panel id="errorMsg" class="errorMsg">
+								<Label text="#menuErr"/>
+							</Panel>
+						</Panel>
+						<Panel id="eulSettings">
+							<ToggleButton checked="true" id="timebarToggleEul" class="volvoCheckbox" text="#menuTimebar" />
+							<Label text="#menuSkill"/>
+							<Panel id="eulSkillList">
+							</Panel>
+							<Panel id="eulItems" class="cDown">
+								<Label text="#eulArts"/>
+								<Panel id="eulItemsRow" class="cRight">
+									<Panel id="eulItem1" class="eulItem">
+										<DOTAItemImage class="eulItemImg" id="myitem1" itemname="item_blink" />
+										<ToggleButton id="EulItemBlink" checked="false" class="volvoCheckbox skillCheckbox" />
+									</Panel>
+									<Panel id="eulItem2" class="eulItem">
+										<DOTAItemImage class="eulItemImg" id="myitem2" itemname="item_aether_lens" />
+										<ToggleButton id="EulItemLense" checked="false" class="volvoCheckbox skillCheckbox" />
+									</Panel>
+								</Panel>
+							</Panel>
+							<Button class="volvoButton" id="startTraining" onactivate="StartEulTraining();">
+								<Label text="#menuStart"/>
+							</Button>
+							<Panel id="eulErrorMsg" class="errorMsg">
+								<Label text="#menuErr"/>
+							</Panel>
+						</Panel>
+						<Panel id="glimpseSettings">
+							<ToggleButton checked="true" id="timebarToggleGlimpse" class="volvoCheckbox" text="#menuTimebar" />
+							<Label text="#teleportMode"/>
+							<Panel id="TPmodButtons">
+									<RadioButton class="volvoRadioButton" checked="checked" group="tpMode" id="tpMode1" text="#tpModeOne"/>
+									<RadioButton class="volvoRadioButton" group="tpMode" id="tpMode2" text="#tpModeTwo"/>
+									<RadioButton class="volvoRadioButton" group="tpMode" id="tpMode3" text="#tpModeThree"/>
+							</Panel>
+							<!-- <DropDown id="glimpseTP">
+							  <Label text="#tpModeOne" id="tpMode1"/>
+							  <Label text="#tpModeTwo" id="tpMode2"/>
+							  <Label text="#tpModeThree" id="tpMode3"/>
+							</DropDown> -->
+							<Label text="#menuSkill"/>
+							<Panel id="glimpseSkillList">
+							</Panel>
+							<Button class="volvoButton" id="startTraining" onactivate="StartGlimpseTraining();">
+								<Label text="#menuStart"/>
+							</Button>
+							<Panel id="glimpseErrorMsg" class="errorMsg">
+								<Label text="#menuErr"/>
+							</Panel>
+						</Panel>
+					</Panel>
+				</Panel>
+			</Panel>
+		</Panel>
+	</Panel>
+</root>
