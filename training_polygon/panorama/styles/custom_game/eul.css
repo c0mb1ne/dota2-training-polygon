@@ -2,7 +2,7 @@
 	horizontal-align: center;
 	margin-top: 80px;
 	width: 100%;
-	height: 200px;
+	height: 100%;
 }
 #btnEnd{
 	margin-top: 50px;
@@ -75,7 +75,20 @@
 	font-size: 16px;
 	text-shadow: 2px 2px 3px 3.0 #000000;
 }
-
+#lvlChanger{
+	color: white;
+	font-size: 16px;
+	vertical-align: bottom;
+	horizontal-align: center;
+	margin-bottom: 145px;
+	width: 200px;
+	height: 38px;
+	opacity: 1;
+	flow-children: right;
+}
+.plusButtons{
+	font-size: 18px;
+}
 
 .volvoButton:hover{
 	background-color: gradient( linear, 0% 0%, 0% 100%, from( #4c5561 ), to( #6c7d88 ) );
@@ -105,8 +118,8 @@
 	transition-duration: 0.1s;
 	transition-timing-function: linear;
 	box-shadow: #00000055 -2px -2px 4px 4px;
-	min-width: 192px;
-	min-height: 36px;
+	min-width: 15px;
+	min-height: 15px;
 }
 
 
@@ -126,6 +139,7 @@
 .volvoButton:active Label{
 	transform: translateY(1px);
 }
+
 Label, TextEntry{
 	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
 }

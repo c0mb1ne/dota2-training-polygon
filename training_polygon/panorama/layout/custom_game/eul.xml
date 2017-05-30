@@ -11,7 +11,7 @@
 		</Button>
 		<Panel id="eulTimer" hittest="false" hittestchildren="false">
 			<Label id="timerText" text="0.000"/>
-			<Panel id="timerBar"> 
+			<Panel id="timerBar">
 			</Panel>
 			<Panel id="barDynamic">
 			</Panel>
@@ -22,6 +22,15 @@
 		<Panel id="eulNotification" hittest="false" hittestchildren="false">
 			<Label id="header" text="Good!"/>
 			<Label id="desc" text="Time between landing and your ability damage:"/>
+		</Panel>
+		<Panel id="lvlChanger">
+			<Label text="Ability level: " style="vertical-align: center;"/>
+			<Button class="volvoButton plusButtons" id="plusLvl" onactivate="ChangeAbilityLvl(1);">
+				<Label text="+"/>
+			</Button>
+			<Button class="volvoButton plusButtons" id="minusLvl" onactivate="ChangeAbilityLvl(0);">
+				<Label text="-"/>
+			</Button>
 		</Panel>
 	</Panel>
 </root>

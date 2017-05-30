@@ -858,7 +858,7 @@ function wrPowershot(hero,castDelay,deathDelay)
 end
 function huskarUlt(hero,castDelay,deathDelay)
 	EVASION_TYPE=4
-	local respawn_place = randomRingPosition(100,525,hero)
+	local respawn_place = randomRingPosition(300,525,hero)
 	local lenght=hero:GetAbsOrigin()-respawn_place
 	local range=lenght:Length()
 	local castpoint=0.3

@@ -146,7 +146,7 @@ var glimpseSkillCount=5
 drawGlimpseSkillList(0,5,5)
 
 
-
+showPanel($('#welcomeWindow'))
 hidePanel($('#mainFrame'))
 hidePanel($('#eulSettings'))
 hidePanel($('#eulsInfo'))

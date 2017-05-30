@@ -33,6 +33,16 @@ rootpanel.style['visibility']='collapse';
 rootpanel.style['opacity']='0';
 $("#eulTimer").style['visibility']='collapse';
 $("#eulTimer").style['opacity']='0';
+$("#lvlChanger").style['visibility']='collapse';
+$("#lvlChanger").style['opacity']='0';
+
+function ChangeAbilityLvl(param){
+	if (param==1) {
+		GameEvents.SendCustomGameEventToServer( "euls_change_ability_lvl", {plus : 1} );
+	}else{
+		GameEvents.SendCustomGameEventToServer( "euls_change_ability_lvl", {plus : 0} );
+	}
+}
 
 function HideUI(){
 	rootpanel=$("#btnEnd").GetParent()
@@ -98,6 +108,13 @@ function eulTrainingStarted(info){
 		    endAlcheTraining()
 		  }
 		)
+	}
+	if ([8,18,21,24].indexOf(info.id)!=-1){
+		$("#lvlChanger").style['visibility']='visible';
+		$("#lvlChanger").style['opacity']='1';
+	}else{
+		$("#lvlChanger").style['visibility']='collapse';
+		$("#lvlChanger").style['opacity']='0';
 	}
 	if (info.timebar==0){
 		$("#eulTimer").style['visibility']='collapse';
