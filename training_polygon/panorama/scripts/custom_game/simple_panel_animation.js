@@ -28,8 +28,7 @@ function AnimatePanel(panel, values, duration, ease, delay)
 
 	var i = 0;
 	var finalTransition = ""
-	for (var property in values)
-	{
+	for (var property in values) {
 		// add property to transition
 		finalTransition = finalTransition + (i > 0 ? ", " : "") + property + " " + transitionString;
 		i++;
