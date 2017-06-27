@@ -1,22 +1,13 @@
-
-
 var playerID=Players.GetLocalPlayer()
 
 
-
-
-
-
-
-function checkForSelecting(interval){
-
-	checking();
-	function checking(){
-		var selectedUnits=Players.GetSelectedEntities(playerID)
+function checkForSelecting(interval) {
+	function checking() {
+		var selectedUnits = Players.GetSelectedEntities(playerID)
 		$.Msg(selectedUnits)
-		$.Schedule(interval, function(){checking();})
+		$.Schedule(interval, checking)
 	}
-
+	checking();
 }
 
 checkForSelecting(0.5)

@@ -16,8 +16,7 @@ var dev_url = 'http://training/training.php';
  *		ease 		- Easing function to use. Example: "linear" or "ease-in"
  *		delay		- Time to wait before starting the animation in seconds
  */
-function AnimatePanel(panel, values, duration, ease, delay)
-{
+function AnimatePanel(panel, values, duration, ease, delay) {
 	// generate transition string
 	var durationString = (duration != null ? parseInt(duration * 1000) + ".0ms" : DEFAULT_DURATION);
 	var easeString = (ease != null ? ease : DEFAULT_EASE);
@@ -26,8 +25,7 @@ function AnimatePanel(panel, values, duration, ease, delay)
 
 	var i = 0;
 	var finalTransition = ""
-	for (var property in values)
-	{
+	for (var property in values) {
 		// add property to transition
 		finalTransition = finalTransition + (i > 0 ? ", " : "") + property + " " + transitionString;
 		i++;
@@ -42,262 +40,292 @@ function AnimatePanel(panel, values, duration, ease, delay)
 }
 
 
-var castpoint=0.95;
-var manta=0.1;
-var screenW=Game.GetScreenWidth();
-var barW=Math.floor(screenW*0.8*0.6);
-var TimeBar=$("#TimeBar")
-var TimingBar=$("#Timing")
-TimeBar.style.width=barW.toString()+"px";
+var castpoint = 0.95;
+var manta = 0.1;
+var screenW = Game.GetScreenWidth();
+var barW = Math.floor(screenW*0.8*0.6);
+var TimeBar = $("#TimeBar")
+var TimingBar = $("#Timing")
+TimeBar.style.width = barW + "px";
 
-var cursorPos=barW/2-29;
-$("#cursor").style.marginLeft=cursorPos.toString()+"px";
-var barTime=3.0;
-var castbarW=barW/barTime*castpoint;
-var mantaBarW=barW/barTime*manta;
-var spellIconW=65;
-var mainBarW=Math.floor(screenW*0.8);
-var spellIconEnd=(mainBarW-barW)/2-spellIconW;
-var spellIconStart=(mainBarW-barW)/2+barW+spellIconW;
-var spellIcon=$("#myability");
+var cursorPos = barW / 2 - 29;
+$("#cursor").style.marginLeft = cursorPos + "px";
+var barTime = 3.0;
+var castbarW = barW / barTime * castpoint;
+var mantaBarW = barW / barTime * manta;
+var spellIconW = 65;
+var mainBarW = Math.floor(screenW * 0.8);
+var spellIconEnd = (mainBarW-barW) / 2 - spellIconW;
+var spellIconStart = (mainBarW - barW) / 2 + barW + spellIconW;
+var spellIcon = $("#myability");
 changeSpellIcon("monkey_king_boundless_strike")
-//spellIcon.style.marginLeft=(spellIconStart).toString()+"px";
-var pixelTime=barW/barTime;
-var spellDelay=pixelTime*spellIconW;
-var showBar=true;
+//spellIcon.style.marginLeft = spellIconStart + "px";
+var pixelTime = barW / barTime;
+var spellDelay = pixelTime * spellIconW;
+var showBar = true;
 hideNotify();
 
-rootpanel=$("#btnTest").GetParent()
-rootpanel.style['visibility']='collapse';
-rootpanel.style['opacity']='0';
+rootpanel = $("#btnTest").GetParent()
+rootpanel.style['visibility'] = 'collapse';
+rootpanel.style['opacity'] = '0';
 
 
-function changeSpellIcon(spell){
+function changeSpellIcon(spell) {
 	var panel=$("#myability");
-	panel.abilityname=spell;
+	panel.abilityname = spell;
 }
 
-function iconAnimation2(spell,time){
+function iconAnimation2(spell, time) {
 	var panel=$("#myability");
-	var distance=(barW+spellIconW);
+	var distance=(barW + spellIconW);
 	changeSpellIcon(spell)
-	panel.style.marginLeft=(distance).toString()+"px";
-	AnimatePanel(panel,{ "opacity": "1;" }, 1, "ease-in")
-	AnimatePanel(panel, { "transform": "translateX(-"+(distance).toString()+"px);" }, time, "cubic-bezier(0,1,1,0)");
-	$.Schedule(time-1, function(){AnimatePanel(panel,{ "opacity": "0;" }, 1);});
-	$.Schedule(time, function(){AnimatePanel(panel,{ "transform": "translateX(0px);" }, 0.1);});
+	panel.style.marginLeft = distance + "px";
+	AnimatePanel(panel, {"opacity": "1;"}, 1, "ease-in")
+	AnimatePanel (
+		panel,
+		{
+			"transform": "translateX(-" + distance + "px);"
+		},
+		time,
+		"cubic-bezier(0,1,1,0)"
+	);
+	$.Schedule(time - 1, function() {
+		AnimatePanel(panel, {"opacity": "0;"}, 1);
+	});
+	$.Schedule(time, function() {
+		AnimatePanel(panel, {"transform": "translateX(0px);"}, 0.1);
+	});
 }
 
-function HideUI(){
+function HideUI() {
 	var rootpanel=$("#btnTest").GetParent()
 	AnimatePanel(rootpanel,{ "opacity": "0;" }, 0.5, "ease-in")
 	$.Schedule(0.5, function(){rootpanel.style['visibility']='collapse';})
 }
-function ShowUI(){
-	var rootpanel=$("#btnTest").GetParent()
-	rootpanel.style['visibility']='visible'
-	$.Schedule(0.5, function(){AnimatePanel(rootpanel,{ "opacity": "1;" }, 0.5, "ease-in");})
+
+function ShowUI() {
+	var rootpanel = $("#btnTest").GetParent()
+	rootpanel.style['visibility'] = 'visible'
+	$.Schedule(0.5, function() {
+		AnimatePanel(rootpanel, {"opacity": "1;"}, 0.5, "ease-in");
+	})
 }
 
-
-
-
-
-function onBtnTestClick(event){
-	var player=Game.GetLocalPlayerID()
+function onBtnTestClick(event) {
+	var player = Game.GetLocalPlayerID()
 	$.Msg(player)
-	var hero=Players.GetPlayerHeroEntityIndex(player);
-	panel=$("#btnTest")
-	AnimatePanel(panel,{ "opacity": "0;" }, 0.5, "ease-in")
-	$.Schedule(0.5, function(){panel.visible=false;panel.enabled=false;})
-	GameEvents.SendCustomGameEventToServer( "simple_game_start", { "player" : player, "key2" : "value2" } );
+	var hero = Players.GetPlayerHeroEntityIndex(player);
+	panel = $("#btnTest")
+	AnimatePanel(panel, {"opacity": "0;"}, 0.5, "ease-in")
+	$.Schedule(0.5, function() {
+		panel.visible=false;
+		panel.enabled=false;
+	})
+	GameEvents.SendCustomGameEventToServer (
+		"simple_game_start",
+		{
+			"player": player,
+			"key2" : "value2"
+		}
+	);
 }
-function onBtnTestClick2(event){
-	
-	iconAnimation2("queenofpain_scream_of_pain",barTime)
 
+function onBtnTestClick2(event) {
+	iconAnimation2("queenofpain_scream_of_pain", barTime)
 }
-function onBtnTestClick3(event){
+
+function onBtnTestClick3(event) {
 	//Game.EmitSound("good1")
 	 Good()
 }
-function endCustomTraining(event){
-	GameEvents.SendCustomGameEventToServer( "custom_manta_training_end", {} );
+
+function endCustomTraining(event) {
+	GameEvents.SendCustomGameEventToServer("custom_manta_training_end", {});
 	HideUI()
 }
 
 function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
+	return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function voiceAnnounce(result){
-	if(result==1){
-		var i=getRandomInt(1,5)
-		Game.EmitSound("good"+i.toString())
-	}else{
-		var i=getRandomInt(1,12)
-		Game.EmitSound("bad"+i.toString())
-	}
+function voiceAnnounce(result) {
+	if(result === 1)
+		Game.EmitSound("good" + getRandomInt(1,5))
+	else
+		Game.EmitSound("bad" + getRandomInt(1,12))
 }
 
-function showNotify(){
+function showNotify() {
 	$("#mantaNotify").RemoveClass("FadeOut");
 	$("#mantaNotify").AddClass("FadeIn");
 }
-function hideNotify(){
+
+function hideNotify() {
 	$("#mantaNotify").RemoveClass("FadeIn");
 	$("#mantaNotify").AddClass("FadeOut");
 }
-function updateStreak(streak){
-	$("#textTest").text=$.Localize( "#InARow" )+streak.toString();
+
+function updateStreak(streak) {
+	$("#textTest").text = $.Localize("#InARow") + streak;
 }
-function updateTopScore(info){
-	streak=info.score
+
+function updateTopScore(info) {
+	streak = info.score
 	//$("#bestScore").text="Best score: "+streak.toString();
 }
-function evasionControl(info){
-	var success=info.how
-	var streak=info.dodgestreak
-	var skill=info.skillId
-	var lives=info.lives
-	var time=info.time
-	var result=0
+function evasionControl(info) {
+	var success = info.how
+	var streak = info.dodgestreak
+	var skill = info.skillId
+	var lives = info.lives
+	var time = info.time
+	var result = 0
 	updateStreak(streak)
-	if (success=="good"){
+	if(success === "good") {
 		Good();
 		result=1
-	}else{
-/*		if (lives==0){
+	} else {
+		/*
+		if (lives === 0)
 			Lost();
-		}else{*/
-			if (time){
+		else {
+		*/
+			if (time)
 				Bad(time);
-			}else{
+			else
 				Bad();
-			}
-			
-		}
-		
+		//}
+	}
 	
 	//addSkillData(skill,result)
 }
+
 function Good(){
-	$("#notify").text=$.Localize( "#mantaGood" );
-	$("#notify").style.color="#02ff06";
-	$("#desc").text=""
+	$("#notify").text = $.Localize("#mantaGood");
+	$("#notify").style.color = "#02ff06";
+	$("#desc").text = ""
 	showNotify();
 	//voiceAnnounce(1)
-	$.Schedule(1,function(){hideNotify()});
+	$.Schedule(1, hideNotify);
 }
-function Bad(time){
-	$("#notify").text=$.Localize( "#mantaBad" );
-	if (time){
-		$("#desc").text=time.toFixed(3)+" s"
-	}else{
-		$("#desc").text=""
-	}
+
+function Bad(time) {
+	$("#notify").text = $.Localize("#mantaBad");
+	if (time)
+		$("#desc").text = time.toFixed(3) + " s"
+	else
+		$("#desc").text = ""
 	$("#notify").style.color="#ff0202";
 	showNotify();
 	//voiceAnnounce(0)
-	$.Schedule(1,function(){hideNotify()});
+	$.Schedule(1, hideNotify);
 }
-function Lost(){
-	$("#notify").text="You lost";
-	$("#notify").style.color="#ff0202";
+
+function Lost() {
+	$("#notify").text = "You lost";
+	$("#notify").style.color = "#ff0202";
 	showNotify();
-	$.Schedule(4,function(){hideNotify()});
+	$.Schedule(4, hideNotify);
 }
 
-function spellCasted(castpoint){
-
+function spellCasted(castpoint) {
 	var mantaBar = $("#manta");
-	var spell=$("#spellBar");
-	var castbarW=barW/barTime*castpoint;
+	var spell = $("#spellBar");
+	var castbarW = barW / barTime * castpoint;
 	//$.Msg("***********animation starts*************");
 
-	var epsilon=0.05
+	var epsilon = 0.05
 
-	startBarAnimation(spell,castpoint);
-	$.Schedule(castpoint-manta+epsilon, function(){startBarAnimation(mantaBar,manta);});
-
+	startBarAnimation(spell, castpoint);
+	$.Schedule(castpoint - manta + epsilon, function() {
+		startBarAnimation(mantaBar, manta);
+	});
 }
 
 
-function startBarAnimation(panel,time){	
-	if (time>=barTime){
-		var panelW=barW;
-		animeOnTimeAppear(panel,barW,panelW,60,barTime);
-		$.Schedule(time, function(){animeOnTimeDisappear(panel,barW,panelW,60,barTime);});
-	}else{
-		var panelW=barW/barTime*time;
-		animeOnTimeAppear(panel,barW,panelW,60,time);
-		$.Schedule(time, function(){animeOnTimeMove(panel,barW,panelW,60,barTime-time);});
-		$.Schedule(barTime, function(){animeOnTimeDisappear(panel,barW,panelW,60,time);});	
+function startBarAnimation(panel, time) {	
+	if (time >= barTime){
+		var panelW = barW;
+		animateOnTimeAppear(panel, barW, panelW, 60, barTime);
+		$.Schedule(time, function() {
+			animeOnTimeDisappear(panel, barW, panelW, 60, barTime);
+		});
+	} else {
+		var panelW = barW / barTime * time;
+		animateOnTimeAppear(panel,barW,panelW,60,time);
+		$.Schedule(time, function() {
+			animeOnTimeMove(panel, barW, panelW, 60, barTime - time);
+		});
+		$.Schedule(barTime, function() {
+			animeOnTimeDisappear(panel, barW, panelW, 60, time);
+		});	
 	}
 }
-function scheduleCast(table){
-	delay=table.delay;
-	castpoint=table.castpoint;
-	spell=table.abil
-	if (showBar==true){
-		$.Schedule(delay-barTime/2, function(){spellCasted(castpoint)});
-	}
-	$.Schedule(delay-barTime/2, function(){iconAnimation2(spell,barTime)});
 
+function scheduleCast(table) {
+	delay = table.delay;
+	castpoint = table.castpoint;
+	spell = table.abil
+	if (showBar)
+		$.Schedule(delay - barTime / 2, function() {
+			spellCasted(castpoint)
+		});
+	$.Schedule(delay - barTime / 2, function() {
+		iconAnimation2(spell,barTime)
+	});
 }
-function animeOnTimeAppear(panel,barW,castbarW,fps,duration){
-	var startTime=Date.now();
-	var endTime=duration*1000+startTime;
-	var interval=1/fps;
-	var start=0;
-	var inc=0;
-	var timeNow=0;
-	var razn=startTime-endTime;
-	var razn2=0;
-	anime();
-	function anime(){
-		timeNow=Date.now();
+
+function animateOnTimeAppear(panel, barW, castbarW, fps, duration){
+	var startTime = Date.now();
+	var endTime = duration * 1000 + startTime;
+	var interval = 1/fps;
+	var start = 0;
+	var inc = 0;
+	var timeNow = 0;
+	var razn = startTime - endTime;
+	var razn2 = 0;
+	animate();
+	function animate() {
+		timeNow = Date.now();
 		//$.Msg("starttime+timenow:")
 		//$.Msg(startTime+timeNow)
-		if (timeNow<=endTime){
-			razn2=startTime-timeNow;
-			inc=castbarW/(razn/razn2);
+		if (timeNow <= endTime){
+			razn2 = startTime - timeNow;
+			inc = castbarW / (razn / razn2);
 			draw(inc);
-			$.Schedule(interval, function(){anime();})
-		}
-		else{
-			var end2=Date.now();
+			$.Schedule(interval, animate)
+		} else {
+			var end2 = Date.now();
 			//$.Msg(panel.id.toString()+" app end in:");
 			//$.Msg(end2-startTime);
 		}
 	}
-	function draw(inc){
-		panel.style["margin-left"]=(barW-inc).toString()+"px";
-		panel.style["width"]=inc.toString()+"px";
+	function draw(inc) {
+		panel.style["margin-left"] = (barW-inc) + "px";
+		panel.style["width"] = inc + "px";
 	}
-
 }
-function animeOnTimeMove(panel,barW,castbarW,fps,duration){
-	var startTime=Date.now();
-	var endTime=duration*1000+startTime;
-	var interval=1/fps;
-	var start=barW-castbarW;
-	var inc=0;
-	var timeNow=0;
-	var razn=startTime-endTime;
-	var razn2=0;
-	anime();
-	function anime(){
-		timeNow=Date.now();
+
+function animeOnTimeMove(panel, barW, castbarW, fps, duration){
+	var startTime = Date.now();
+	var endTime  = duration * 1000 + startTime;
+	var interval = 1 / fps;
+	var start = barW - castbarW;
+	var inc = 0;
+	var timeNow = 0;
+	var razn = startTime - endTime;
+	var razn2 = 0;
+	animate();
+	function animate() {
+		timeNow = Date.now();
 		//$.Msg("starttime+timenow:")
 		//$.Msg(startTime+timeNow)
-		if (timeNow<=endTime){
-			razn2=startTime-timeNow;
-			inc=(start)/(razn/razn2);
+		if (timeNow <= endTime){
+			razn2 = startTime - timeNow;
+			inc = (start) / (razn / razn2);
 			draw(inc);
-			$.Schedule(interval, function(){anime();})
-		}
-		else{
+			$.Schedule(interval, animate)
+		} else {
 			draw(start);
 			var end2=Date.now();
 			//$.Msg(panel.id.toString()+" move end in:");
@@ -308,57 +336,59 @@ function animeOnTimeMove(panel,barW,castbarW,fps,duration){
 			//$.Msg(inc);
 		}
 	}
-	function draw(inc){
-		panel.style["margin-left"]=(start-inc).toString()+"px";
-		if (start-inc<=cursorPos && start-inc+castbarW>=cursorPos){
+	function draw(inc) {
+		panel.style["margin-left"] = (start-inc) + "px";
+		if(start - inc <= cursorPos && start - inc + castbarW >= cursorPos){
 			
-		}else{
+		} else {
 			
 		}
 		//panel.style["width"]=inc.toString()+"px";
 	}
 }
-function animeOnTimeDisappear(panel,barW,castbarW,fps,duration){
-	var startTime=Date.now();
-	var endTime=duration*1000+startTime;
-	var interval=1/fps;
-	var start=0;
-	var inc=0;
-	var timeNow=0;
-	var razn=startTime-endTime;
-	var razn2=0;
-	anime();
-	function anime(){
-		timeNow=Date.now();
+function animeOnTimeDisappear(panel, barW, castbarW, fps, duration){
+	var startTime = Date.now();
+	var endTime = duration * 1000 + startTime;
+	var interval = 1 / fps;
+	var start = 0;
+	var inc = 0;
+	var timeNow = 0;
+	var razn = startTime - endTime;
+	var razn2 = 0;
+	animate();
+	function animate() {
+		timeNow = Date.now();
 		//$.Msg("starttime+timenow:")
 		//$.Msg(startTime+timeNow)
-		if (timeNow<=endTime){
-			razn2=startTime-timeNow;
-			inc=castbarW/(razn/razn2);
+		if (timeNow <= endTime){
+			razn2 = startTime - timeNow;
+			inc = castbarW / (razn / razn2);
 			draw(inc);
-			$.Schedule(interval, function(){anime();})
-		}
-		else{
+			$.Schedule(interval, animate)
+		} else {
 			draw(castbarW);
-			var end2=Date.now();
+			var end2 = Date.now();
 			//$.Msg(panel.id.toString()+" disapp end in:");
 			//$.Msg(end2-startTime);
 		}
 	}
-	function draw(inc){
-		//panel.style["margin-left"]=(barW-inc).toString()+"px";
-		panel.style["width"]=(castbarW-inc).toString()+"px";
+	function draw(inc) {
+		//panel.style["margin-left"] = (barW - inc) + "px";
+		panel.style["width"] = (castbarW - inc) + "px";
 	}
 }
-function barChangeVisibleState(state){
-	var panel=$("#Timing");
-	if (!state){
-		AnimatePanel(panel,{ "opacity": "0;" }, 0.5, "ease-in")
-		$.Schedule(0.5, function(){panel.visible=false;panel.enabled=false;})
-	}else{
-		panel.visible=true
-		panel.enabled=true
-		AnimatePanel(panel,{ "opacity": "1;" }, 0.5, "ease-in")
+function barChangeVisibleState(state) {
+	var panel = $("#Timing");
+	if(!state) {
+		AnimatePanel(panel, {"opacity": "0;"}, 0.5, "ease-in")
+		$.Schedule(0.5, function() {
+			panel.visible=false;
+			panel.enabled=false;
+		})
+	} else {
+		panel.visible = true
+		panel.enabled = true
+		AnimatePanel(panel, {"opacity": "1;"}, 0.5, "ease-in")
 	}
 }
 
@@ -403,26 +433,21 @@ function barChangeVisibleState(state){
             }
         });
 }*/
-function updateLives(info){
-	lives=info.lives
-	$("#livesLeft").text="Lives left: "+lives.toString();
+function updateLives(info) {
+	lives = info.lives
+	$("#livesLeft").text = "Lives left: " + lives;
 }
-function trainingStart(info){
-	if (info.timebar==0){
-		barChangeVisibleState(false)
-	}else{
-		barChangeVisibleState(true)
-	}
+
+function trainingStart(info) {
+	barChangeVisibleState(info.timebar === 0)
 	ShowUI();
 
 }
 
 
-  GameEvents.Subscribe( "spell_casted", scheduleCast );
-  GameEvents.Subscribe( "evasion_check", evasionControl );
-  GameEvents.Subscribe( "top_score", updateTopScore );
-  GameEvents.Subscribe( "update_lives", updateLives );
-  //GameEvents.Subscribe( "end_evasion_game", endEvasionGame );
-  GameEvents.Subscribe( "custom_training_start", trainingStart );
-
-
+GameEvents.Subscribe("spell_casted", scheduleCast);
+GameEvents.Subscribe("evasion_check", evasionControl);
+GameEvents.Subscribe("top_score", updateTopScore);
+GameEvents.Subscribe("update_lives", updateLives);
+//GameEvents.Subscribe("end_evasion_game", endEvasionGame);
+GameEvents.Subscribe("custom_training_start", trainingStart);
