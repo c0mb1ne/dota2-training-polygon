@@ -414,7 +414,7 @@ function trainingStart(info){
 		barChangeVisibleState(true)
 	}
 	ShowUI();
-	$.Msg("AHAHAHHAHAhA")
+
 }
 
 
