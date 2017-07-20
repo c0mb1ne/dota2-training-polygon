@@ -64,7 +64,7 @@ var pixelTime = barW / barTime;
 var spellDelay = pixelTime * spellIconW;
 var showBar = true;
 hideNotify();
-
+$("#testskill").style['visibility']='visible'
 rootpanel = $("#btnTest").GetParent()
 rootpanel.style['visibility'] = 'collapse';
 rootpanel.style['opacity'] = '0';
@@ -439,8 +439,11 @@ function updateLives(info) {
 }
 
 function trainingStart(info) {
-	barChangeVisibleState(info.timebar === 0)
+	barChangeVisibleState(info.timebar === 1)
 	ShowUI();
+	if (info.blink == 1){
+		$("#testskill").style['visibility']='collapse'
+	}
 
 }
 

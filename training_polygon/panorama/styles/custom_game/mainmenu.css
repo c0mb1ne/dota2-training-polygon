@@ -130,7 +130,28 @@
 	color: #4CA239;
 	margin-left: 10px;
 }
-#firstDonation{
+#myTwitchContainer{
+	margin-top: 200px;
+	flow-children: down;
+}
+#twitchInfoContainer{
+	padding: 10px;
+	width: 300px;
+	margin-top: 20px;
+	flow-children: down;
+	background-color: #603478FF;
+	
+}
+.twitchContainerLive{
+	animation-name: liveGlow;
+    animation-duration: 2.35s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+#fdContainer{
+	width: 300px;
+	height: 80px;
+	flow-children: down;
 	background-color: gradient( linear, 0% 0%, 0% 100%, from( #08AAC3 ), to( #1793B3 ) );
     border-top: 1px solid #859DCD;
     border-right: 1px solid #4969BF;
@@ -167,6 +188,31 @@
         box-shadow: #0094FF80 -2px -2px 12px 4px;
     }
 }
+@keyframes 'liveGlow'
+{
+    0%
+    {
+        brightness: 2.3;
+        box-shadow: #4B367C80 -2px -2px 12px 4px;
+    }
+
+
+    50%
+    {
+        brightness: 1;
+        box-shadow: #60347880 -1px -1px 2px 2px;
+    }
+
+    100%
+    {
+        brightness: 2.3;
+        box-shadow: #4B367C80 -2px -2px 12px 4px;
+    }
+}
+.labelLive{
+	color:  #FF0600FF;
+}
+
 .topBar{
 	background-color: #00000077;
 	color: #aaaaaa;
@@ -258,7 +304,7 @@
 	background-image: url("file://{images}/custom_game/shop_menu.png");
 }
 #euls{
-	background-image: url("file://{images}/custom_game/cyclone.png");
+	background-image: url("file://{images}/custom_game/timing_training.png");
 }
 #glimpse{
 	background-image: url("file://{images}/custom_game/glimpse_train.png");
@@ -384,13 +430,57 @@
 	flow-children: down;
 	background-color: #141616;
 }
-#EulSkillList{
+#eulSkillList{
+	width: 500px;
+	height: 400px;
+	overflow: squish scroll;
+
+	flow-children: down;
+	background-color: #141616;
+}
+#armletHeroPool{
 	width: 500px;
 	height: 400px;
 	overflow: squish scroll;
 	margin-top: 15px;
 	flow-children: down;
 	background-color: #141616;
+}
+
+.armletHeroSelector{
+	height: 40px;
+	border-radius: 50%;
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #232627 ), to( #1C1D20 ) );
+	box-shadow: fill #00000088 -2px -2px 12px 12px;
+	width: 40px;
+	margin: 4px;
+	saturation: 0.0;
+	transition-property: saturation, box-shadow;
+	transition-duration: 0.3s;
+	transition-timing-function: linear;
+}
+
+.armletHeroSelected{
+	background-color: #5b62bf77;
+	box-shadow: fill #5b62bf77 -4px -4px 8px 8px;
+	saturation: 1.0;
+}
+
+.armletHeroSelector:hover{
+	saturation: 1.0;
+}
+.armletThumb{
+	vertical-align: center;
+	horizontal-align: center;
+}
+#armletSettings{
+	flow-children: down;
+}
+.armletTowerThumb{
+	width: 32px;
+	height: 32px;
+	background-size: 32px 32px;
+	background-image: url("file://{images}/custom_game/towericon.png");
 }
 .errorMsg{
 	horizontal-align:center;
@@ -410,7 +500,7 @@
 	border-radius: 10%;
 }
 .eulItem{
-	margin: 5px;
+	margin-right: 5px;
 }
 VerticalScrollBar{
 	margin-right: 15px;
@@ -441,6 +531,13 @@ VerticalScrollBar .ScrollThumb{
 #eulsSettings{
 	visibility: collapse;
 	opacity: 0;
+}
+#timingType{
+	flow-children: right;
+}
+.timingEntry{
+	height: 63px;
+	margin-right: 10px;
 }
 .skillGroupTitle{
 	color: white;

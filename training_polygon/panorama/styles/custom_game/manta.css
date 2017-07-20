@@ -67,10 +67,11 @@
 	vertical-align: bottom;
 	background-image: url("file://{images}/custom_game/lel.png");
 }
-#testSkill{
-	margin-top: 5px;
+#testskill{
+	
 	horizontal-align: center;
-	width: 80%;
+	margin-top: 5px;
+	width: 80%; 
 }
 #myability{
 	border-radius: 50%;

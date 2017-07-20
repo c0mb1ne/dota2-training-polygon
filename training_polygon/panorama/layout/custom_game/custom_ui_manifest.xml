@@ -26,6 +26,7 @@
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/mainmenu.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/manta.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/eul.xml" />
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/armlet.xml" />
    
   </Panel>
 </root>

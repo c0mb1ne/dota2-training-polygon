@@ -90,6 +90,7 @@ function eulTrainingStarted(info) {
 	eul = info.bartime
 	barw = 300
 	markerMargin = Math.floor(barw - (barw * castpoint) / eul)
+	$("#barMarker").style["margin-top"] = "42px"
 	$("#barMarker").style["margin-left"] = markerMargin + "px"
 	//$("#barMarker").style["width"] = epsW + "px"
 	$("#barMarker").style["width"]="100%"

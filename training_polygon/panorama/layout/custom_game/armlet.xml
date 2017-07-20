@@ -1,0 +1,69 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/armlet.css" />
+		<include src="file://{resources}/styles/custom_game/dotastyles.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/armlet.js" />
+	</scripts>
+	<Panel class="DemoHud" hittest="false">
+	  <Panel id="settingsPanel" class="ControlPanel LeftRightFlow">
+	    <Panel class="ControlPanelContainer">
+	    <Panel id="Maximized">
+	      <Panel id="MinimizeButton">
+	        <Label text="#menuSet" />
+	      </Panel>
+
+	      <Panel class="Category">
+	        <Label text="#armEnemy"/>
+	        <Panel class="Row">
+	        	<Label class="buttonDesc" text="#armAttackSpeed"/>
+	        </Panel>
+	        <Panel class="Row">
+    			<Button class="DemoButton Small" onactivate="ChangeAttackSpeed(-10);">
+	            	<Label text="-"/>
+	          	</Button>
+	          	<Label id="asField" class="Value" text="322"/>
+	          	<Button class="DemoButton Small" onactivate="ChangeAttackSpeed(10);">
+	            	<Label text="+"/>
+	          	</Button>
+	        </Panel>
+	        <Panel class="Row">
+	        	<Label class="buttonDesc" text="#armDamage"/>
+	        </Panel>
+	        <Panel class="Row">
+    			<Button class="DemoButton Small" onactivate="ChangeAttackDamage(-10);">
+	            	<Label text="-"/>
+	          	</Button>
+	          	<Label id="dmgField" class="Value" text="322"/>
+	          	<Button class="DemoButton Small" onactivate="ChangeAttackDamage(10);">
+	            	<Label text="+"/>
+	          	</Button>
+	        </Panel>
+	        <Panel class="Row">
+	          <ToggleButton class="DemoButton" onactivate="ToggleFakeMod();">
+	            <Label text="#armFakeMode"/>
+	          </ToggleButton>
+	        </Panel>
+	      </Panel>
+	      
+
+
+	      <Panel class="Category">
+	        <Label text=""/>
+	        <Panel class="QuitPausePanel">
+	          <Button class="QuitButton" onactivate="ArmletEnd()">
+	            <Label text="#trainingEnd"/>
+	          </Button>
+	        </Panel>
+	      </Panel>
+
+	    </Panel>
+	    </Panel>
+	    <Button id="ControlPanelSlideThumb" onactivate="$('#settingsPanel').ToggleClass('Minimized')">
+	      <Panel class="RightArrowButtonIcon"/>
+	    </Button>
+	    <Panel />
+	  </Panel>
+	</Panel>
+</root>

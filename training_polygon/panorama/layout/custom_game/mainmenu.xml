@@ -266,12 +266,22 @@
 						</Panel>
 					</Panel>
 					<Panel id="firstDonation" class="donatorList">
-						<Label class="donatorsHeader" text="#donFirst"/>
-						<Panel id="don_e_41" class="donatorPanel donatorPanelHidden">
-							<DOTAAvatarImage id="don_a_41" class="donatorAvatar" steamid="local" />
-							<Panel class="donatorDetails">
-								<DOTAUserName id="don_n_41" class="donatorName" steamid="local" />
-								<Label id="don_m_41" class="donatorAmmount" text="322 $"/>
+						<Panel id="fdContainer">
+							<Label class="donatorsHeader" text="#donFirst"/>
+							<Panel id="don_e_41" class="donatorPanel donatorPanelHidden">
+								<DOTAAvatarImage id="don_a_41" class="donatorAvatar" steamid="local" />
+								<Panel class="donatorDetails">
+									<DOTAUserName id="don_n_41" class="donatorName" steamid="local" />
+									<Label id="don_m_41" class="donatorAmmount" text="322 $"/>
+								</Panel>
+							</Panel>
+						</Panel>
+						<Panel id="myTwitchContainer">
+							<Label text="#twitchMsg"/>
+							<Panel id="twitchInfoContainer">
+								<Label text="twitch.tv/combine420"/>
+								<Label id="tLiveStatus" text="LIVE"/>
+								<Label id="tGame" text="Playing "/>
 							</Panel>
 						</Panel>
 					</Panel>
@@ -289,8 +299,9 @@
 					<Panel class="leftCol">
 						<Label class="leftColHeader" text="#menuMods"/>
 						<RadioButton class="trainingEntry" checked="checked" group="mods" id="manta" text="#mapTitle"/>
-						<RadioButton class="trainingEntry" group="mods" id="euls" text="#eulsTitle"/>
+						<RadioButton class="trainingEntry" group="mods" id="euls" text="Training of abilities timing"/>
 						<RadioButton class="trainingEntry" group="mods" id="glimpse" text="Training of Glimpse evasion"/>
+						<RadioButton class="trainingEntry" group="mods" id="armlet" text="Armlet toggle training"/>
 						<!-- <Label class="leftColHeader" text="Coming soon:"/>
 						<Panel class="trainingEntryDisabled" id="shop">
 							<Label class="trainName" text="Shopping training"/>
@@ -388,7 +399,9 @@
 							<Label class="infoText" text="#glimpseInfo12"/>
 							<Label class="infoText" text="#glimpseInfo13"/>
 						</Panel>
-						
+						<Panel id="armletInfo" class="infoCol">
+							<Label class="infoText" text="Armlet info here"/>
+						</Panel>
 					</Panel>
 					<Panel class="rightCol">
 						<Label class="leftColHeader" text="#menuSet"/>
@@ -405,6 +418,8 @@
 									<RadioButton class="volvoRadioButton" group="mantaMode" id="customMode" text="Custom mode"/>
 								</Panel> -->
 								<ToggleButton checked="true" id="timebarToggle" class="volvoCheckbox" text="#menuTimebar" />
+								<ToggleButton checked="true" id="mantaShuffle" class="volvoCheckbox" text="#shuffleMode" />
+								<ToggleButton checked="false" id="mantaBlink" class="volvoCheckbox" text="#hardcoreMode" />
 							</Panel>
 							<Panel id="customSettings">
 								<Panel id="selectionButtons">
@@ -427,6 +442,29 @@
 							</Panel>
 						</Panel>
 						<Panel id="eulSettings">
+							<Label text="#timingType"/>
+							<Panel id="timingType">
+								<Panel id="eulType" class="timingEntry">
+									<DOTAItemImage id="eulThumb" itemname="item_cyclone" />
+									<RadioButton class="volvoRadioButton" checked="checked" group="timingMod" id="ttype_0"/>
+								</Panel>
+								<Panel id="disruptType" class="timingEntry">
+									<DOTAAbilityImage class="etAbilThumb" id="sddThumb" abilityname="shadow_demon_disruption" />
+									<RadioButton class="volvoRadioButton" group="timingMod" id="ttype_1"/>
+								</Panel>
+								<Panel id="astralType" class="timingEntry">
+									<DOTAAbilityImage class="etAbilThumb" id="odaThumb" abilityname="obsidian_destroyer_astral_imprisonment" />
+									<RadioButton class="volvoRadioButton" group="timingMod" id="ttype_2"/>
+								</Panel>
+								<Panel id="aegisType" class="timingEntry">
+									<DOTAItemImage id="aegisThumb" itemname="item_aegis" />
+									<RadioButton class="volvoRadioButton" group="timingMod" id="ttype_3"/>
+								</Panel>
+								<Panel id="wkultType" class="timingEntry">
+									<DOTAAbilityImage class="etAbilThumb" id="wkuThumb" abilityname="skeleton_king_reincarnation" />
+									<RadioButton class="volvoRadioButton" group="timingMod" id="ttype_4"/>
+								</Panel>
+							</Panel>
 							<ToggleButton checked="true" id="timebarToggleEul" class="volvoCheckbox" text="#menuTimebar" />
 							<Label text="#menuSkill"/>
 							<Panel id="eulSkillList">
@@ -473,6 +511,14 @@
 							<Panel id="glimpseErrorMsg" class="errorMsg">
 								<Label text="#menuErr"/>
 							</Panel>
+						</Panel>
+						<Panel id="armletSettings">
+							<Label text="#armletSettings1"/>
+							<Panel id="armletHeroPool">
+							</Panel>
+							<Button class="volvoButton" id="startTraining" onactivate="startArmletTraining();">
+								<Label text="#menuStart"/>
+							</Button>
 						</Panel>
 					</Panel>
 				</Panel>
